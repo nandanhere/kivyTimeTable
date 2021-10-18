@@ -1,7 +1,10 @@
 ﻿,9:00-9:55,9:55-10:50,11:05-12:00,12:00-12:55,12:55-1:45,1:45-2:40,2:40-3:35,3:35-4:30
-Monday,Computer Networks,Software Engineering,Database Management Systems,Open elective,lunch break,Professional Elective,DBMS lab 2,DBMS lab 2
-Tuesday,CN lab 1,CN lab 1 ,DBMS,Open elective,lunch break,Computer Networks,Software Engineering,Intelectual Property Rights
-Wednesday,Intelectual Property Rights,Computer Networks,Professional Elective,Open elective,lunch break,,,
-Thursday,professional elective,Software Engineering,Scripting Lab,Scripting Lab,lunch break,Intelectual Property Rights,DBMS Tutorial,DBMS Tutorial
-Friday,Computer Networks,Database Management Systems,Scripting Lab,Scripting Lab,,Department activities,Department activities,Department activities
+Monday,S3,S4,s6,Subject 1,lunch break,S7,s6,S7
+Tuesday,S7,S7,s6,Subject 1,lunch break,S3,S4,S5
+Wednesday,S5,S3,S7,Subject 1,lunch break,,,
+Thursday,S7,S4,Subject 2,Subject 2,lunch break,S5,s6,s6
+Friday,S3,s6,Subject 2,Subject 2,lunch break,Department activities,Department activities,Department activities
 Saturday,,,,,,,,
+,s3 Subject 3,,,S5 : Subject 5,,,,
+,s6 : subject 6,,,S4 : Subject 4,,,,
+,S7: subject 7,,,,,,,

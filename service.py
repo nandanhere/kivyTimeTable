@@ -95,13 +95,14 @@ if __name__ == '__main__':
                 for i in range(len(row)):
                     entry = row[i]
                     if count % 600 == 0 and day == row[0]:
+                        if DEBUG:print("Notification!")
                         if  times[i][0] <= currtime <=  times[i][1]:
                             if i + 1 < len(row):
                                 sendNotif(ind=i,sub=entry,nextsub=row[i + 1])  #type:ignore
                             else:
                                 sendNotif(ind=i,sub=entry,nextsub='free')  
                             flip = True
-        if not flip:sendNotif(0,"free","free")
+        if not flip and count % 600 == 0 :sendNotif(0,"free","free")
         if DEBUG : print("service is sending data.")
         if recievedDataOnce:
             sleep(10)

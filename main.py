@@ -7,7 +7,6 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from jnius import autoclass
 import platform
-# from kivymd.uix.button import MDFlatButton
 from oscpy.client import OSCClient
 from oscpy.server import OSCThreadServer
 from kivy.utils import platform
