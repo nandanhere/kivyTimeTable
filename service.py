@@ -77,10 +77,10 @@ if __name__ == '__main__':
     SERVER = OSCThreadServer()
     SERVER.listen('localhost', port=3000, default=True)
     def sendinfo(data=True):
-        global recievedDataOnce,times, table, days
-        ss = '0;' + str(times) + ";" + str(table)  + ';' + str(days) if data else '1'
+        global recievedDataOnce,times, table
+        ss = '0;' + str(times) + ";" + str(table)  if data else '1'
         message = bytes(ss,'utf-8')
-        if DEBUG : print('was pinged! will send',times, table,days)
+        if DEBUG : print('was pinged! will send',times, table)
         CLIENT.send_message(b'/message',[message, ],)
         recievedDataOnce = True
     SERVER.bind(b'/ping',sendinfo)
