@@ -38,6 +38,11 @@ folder, where the template file which buildozer uses is present.
 -   either replace this file with the one provided in the repo
 -   or you can add your own permissions at the \<services> part of the file
 Rebuild after this and you will get permissions for the service. note that user must grant permissions for this and you have to call the appropriate function to ask for permissions in the ui part of the code.(see [main.py](https://github.com/nandanhere/kivyTimeTable/blob/main/main.py)])
+### 3 : Enabling the service as a foreground service:
+If the app service is not kept in foreground, android will kill the app as soon as we switch apps or lock the device. In this case i followed the instructions of [this stackoverflow question](https://stackoverflow.com/questions/64473316/foreground-service-in-android-using-kivy). The file Service.tmpl.java must be replaced in 
+
+     .buildozer/android/platform/build-armeabi-v7a/dists/timetable__armeabi-v7a/templates/Service.tmpl.java 
+doing so will enable the app. note that this is buggy for kivytimetable since if you close the app, the service acts weird.
 ## Notes on the Expandable notifications for the app:
 The [service.py](https://github.com/nandanhere/kivyTimeTable/blob/main/service.py) periodically sends a notification to the user , with the format 
 

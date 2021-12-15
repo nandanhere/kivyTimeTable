@@ -3,6 +3,7 @@ from datetime import datetime
 from time import sleep
 from plyer import notification
 from pathlib import Path
+from jnius import autoclass
 
 from oscpy.server import OSCThreadServer
 from oscpy.client import OSCClient
@@ -49,6 +50,8 @@ def sendNotif(ind,sub,nextsub):
 
 
 if __name__ == '__main__':
+    PythonService = autoclass('org.kivy.android.PythonService')
+    # PythonService.mService.setAutoRestartService(True)
     recievedDataOnce = False
     times,rawtimes,table = [],[],[]
     from android.storage import primary_external_storage_path                   #type: ignore
@@ -103,10 +106,12 @@ if __name__ == '__main__':
                                 sendNotif(ind=i,sub=entry,nextsub='free')  
                             flip = True
         if not flip and count % 600 == 0 :sendNotif(0,"free","free")
+        count %= 600
         if DEBUG : print("service is sending data.")
         if recievedDataOnce:
             sleep(10)
-            count = (count + 10) % 601
+            print("still running,",datetime.now(),count) 
+            count = (count + 10)
             sendinfo(data=False)
         else:
             sleep(1)

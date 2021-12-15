@@ -118,6 +118,15 @@ class HomeScreen(Screen):
 
 
 class TimeTableApp(App):
+    def startservice(self):
+        SERVICE_NAME = u'{packagename}.Service{servicename}'.format(
+            packagename=u'org.kivy.timetable', servicename=u'Timetablepong')
+        service = autoclass(SERVICE_NAME)
+        self.mActivity = autoclass(
+            u'org.kivy.android.PythonActivity').mActivity
+        argument = ''
+        service.start(self.mActivity, argument)
+        self.service = service
     def build(self):
         self.h = HomeScreen(name='home')
         self.table = []
@@ -131,14 +140,7 @@ class TimeTableApp(App):
         server.bind(b'/message', self.callback)
         self.client = OSCClient(b'localhost', 3000)
         if platform == 'android':
-            SERVICE_NAME = u'{packagename}.Service{servicename}'.format(
-                packagename=u'org.kivy.timetable', servicename=u'Timetablepong')
-            service = autoclass(SERVICE_NAME)
-            self.mActivity = autoclass(
-                u'org.kivy.android.PythonActivity').mActivity
-            argument = ''
-            service.start(self.mActivity, argument)
-            self.service = service
+            self.startservice()
         while self.table == []:
             if DEBUG:
                 print("ui pinging server for data")
